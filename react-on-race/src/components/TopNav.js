@@ -1,10 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
 import './App.css';
 import React from 'react';
 import Home from './components/Home';
 import TopNav from './components/TopNav';
-import FootNav from './components/FootNav';
+import BotNav from './components/BotNav';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 
@@ -17,9 +15,12 @@ function App() {
         </header>
         <Switch>
         <Route path="/" exact component={ Home }/>
+        <Route path="/location" exact component={ Location }/>
+        <Route path="/pictures" exact component={ Picture }/>
+        <Route path="/riders" exact component={ Rider }/>
         </Switch>
         <footer>
-          <FootNav />
+          <BotNav />
         </footer>
       </div>
     </Router>
