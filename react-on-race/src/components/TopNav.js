@@ -1,30 +1,24 @@
-import './App.css';
 import React from 'react';
-import Home from './components/Home';
-import TopNav from './components/TopNav';
-import BotNav from './components/BotNav';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import '../App.css';
+import { Link } from 'react-router-dom';
 
 
-function App() {
+function TopNav() {
   return (
-    <Router>
-      <div className="App">
-        <header>
-          <TopNav />
-        </header>
-        <Switch>
-        <Route path="/" exact component={ Home }/>
-        <Route path="/location" exact component={ Location }/>
-        <Route path="/pictures" exact component={ Picture }/>
-        <Route path="/riders" exact component={ Rider }/>
-        </Switch>
-        <footer>
-          <BotNav />
-        </footer>
-      </div>
-    </Router>
+    <nav>
+      <h3>Title</h3>
+      <ul className="nav-links">
+        <Link to='/'>
+          <li>Home</li>
+        </Link>
+        <Link to='/pictures'>
+          <li>Picture</li>
+        </Link>
+      </ul>
+
+    </nav>
+
   );
 }
 
-export default App;
+export default TopNav;

@@ -5,24 +5,31 @@ import React from 'react';
 import Home from './components/Home';
 import TopNav from './components/TopNav';
 import FootNav from './components/FootNav';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
+import Picture from './components/Picture';
 
 
 function App() {
   return (
-    <Router>
+    <Router>      
       <div className="App">
-        <header>
-          <TopNav />
-        </header>
-        <Switch>
-        <Route path="/" exact component={ Home }/>
-        </Switch>
-        <footer>
-          <FootNav />
-        </footer>
-      </div>
+      <header>
+        <TopNav />
+      </header>
+      <Routes>
+          <Route path="/" element={<App />} />
+          <Route index element={<Home />} />
+          <Route path="/Picture" element={<Picture />} />
+      </Routes>
+
+      <footer>
+        <FootNav />
+      </footer>
+    </div>
     </Router>
+
   );
 }
 
