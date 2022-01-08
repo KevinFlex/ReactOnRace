@@ -5,7 +5,8 @@ import React from 'react';
 import Home from './components/Home';
 import TopNav from './components/TopNav';
 import FootNav from './components/FootNav';
-
+import Map from './components/Map';
+import riders from './components/RiderList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 import Picture from './components/Picture';
@@ -14,14 +15,15 @@ import Picture from './components/Picture';
 function App() {
   return (
     <Router>      
-      <div className="App">
+    <div className="App">
       <header>
         <TopNav />
       </header>
       <Routes>
           <Route path="/" element={<App />} />
           <Route index element={<Home />} />
-          <Route path="/Picture" element={<Picture />} />
+          <Route path="/pictures" element={<Picture />} />
+          <Route path="/map" element={<Map riders={riders} />} />
       </Routes>
 
       <footer>

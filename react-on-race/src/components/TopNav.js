@@ -14,6 +14,9 @@ function TopNav() {
         <Link to='/pictures'>
           <li>Picture</li>
         </Link>
+        <Link to='/map'>
+          <li>Race map</li>
+        </Link>
       </ul>
 
     </nav>

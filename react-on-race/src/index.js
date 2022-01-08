@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 ReactDOM.render(
   <React.StrictMode>
