@@ -1,15 +1,15 @@
 import logo from './logo.svg';
-import './App.scss';
 import React from 'react';
 import Home from './components/Home';
 import TopNav from './components/TopNav';
 import FootNav from './components/FootNav';
 import Map from './components/Map';
 import riders from './components/RiderList';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '../src/assets/scss/style.scss';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 import Picture from './components/Picture';
 import Table from './components/Table';
+import Contest from './components/Contest';
 
 
 function App() {
@@ -25,6 +25,7 @@ function App() {
           <Route path="/pictures" element={<Picture />} />
           <Route path="/map" element={<Map riders={riders} />} />
           <Route path="/riderList" element={<Table riders={riders} />} />
+          <Route path="/contestPage" element={<Contest/>} />
 
       </Routes>
 

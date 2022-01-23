@@ -19,6 +19,9 @@ function TopNav() {
         <Link to='/riderList'>
           <li>Riders information</li>
         </Link>
+        <Link to='/contestPage'>
+        <li>Sponsor Contest</li>
+        </Link>
       </ul>
 
     </nav>

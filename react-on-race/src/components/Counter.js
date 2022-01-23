@@ -46,9 +46,18 @@ Object.keys(timeLeft).forEach((interval) => {
 
 
 return (
-    <div className="counter">
-                    <h1>Main {year} Cycle Race</h1><br/>
-        {timerComponents.length ? timerComponents : <span>Race started !</span>}
+    <div className="container">
+        <div className="row">
+            <div className="col-12">
+            <h2>Main {year} Cycle Race</h2>
+            <div className="col-12">
+            {timerComponents.length ? timerComponents : <span>Race started !</span>}
+
+            </div>
+            </div>
+        </div>
+
+
     </div>
 );
 }
