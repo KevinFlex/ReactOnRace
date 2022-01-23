@@ -1,6 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
-import './App.css';
+import './App.scss';
 import React from 'react';
 import Home from './components/Home';
 import TopNav from './components/TopNav';
@@ -10,6 +9,7 @@ import riders from './components/RiderList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 import Picture from './components/Picture';
+import Table from './components/Table';
 
 
 function App() {
@@ -24,6 +24,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/pictures" element={<Picture />} />
           <Route path="/map" element={<Map riders={riders} />} />
+          <Route path="/riderList" element={<Table riders={riders} />} />
+
       </Routes>
 
       <footer>

@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 import {Nav, Navbar, NavbarBrand } from 'reactstrap';
 
 function FootNav() {

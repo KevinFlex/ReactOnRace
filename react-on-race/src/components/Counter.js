@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 function Counter() {
 const calculateTimeLeft = () => {
     let year = new Date().getFullYear();
-    let difference = +new Date(`21/12/${year}`) - +new Date();
+    let difference = +new Date(`01/28/${year}`) - +new Date();
 
     let timeLeft = {};
 
@@ -39,7 +39,6 @@ Object.keys(timeLeft).forEach((interval) => {
 
     timerComponents.push(
         <span>
-            <h1>Main {year} CycleRace</h1>
             {timeLeft[interval]} {interval}{" "}
         </span>
     );
@@ -47,7 +46,8 @@ Object.keys(timeLeft).forEach((interval) => {
 
 
 return (
-    <div>
+    <div className="counter">
+                    <h1>Main {year} Cycle Race</h1><br/>
         {timerComponents.length ? timerComponents : <span>Race started !</span>}
     </div>
 );

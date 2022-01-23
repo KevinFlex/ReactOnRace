@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 import { Link } from 'react-router-dom';
 
 
@@ -16,6 +15,9 @@ function TopNav() {
         </Link>
         <Link to='/map'>
           <li>Race map</li>
+        </Link>
+        <Link to='/riderList'>
+          <li>Riders information</li>
         </Link>
       </ul>
 
