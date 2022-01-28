@@ -1,0 +1,17 @@
+.picture {
+    background-color: dimgray;
+
+    img {
+        height: 65vh;
+        width: auto;
+        object-fit: contain;
+
+        &:hover { 
+                  scale: 0.95;
+                  transition-duration: 0.5s;
+                  transition-property: all;
+                  filter: grayscale(60%);
+                }
+    }
+
+}

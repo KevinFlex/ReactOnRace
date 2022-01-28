@@ -1,44 +1,105 @@
 import React, { useEffect } from 'react'
-import {useState} from 'react'
+import useInput from './Hooks/InputForm'
+import { useState } from 'react'
 
 export default function Forms() {
-    const [firstName, steFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [slogan, setSlogan] = useState('');
+    const { value: firstName, bind: bindFirstName, reset: resetFirstName } = useInput('');
+    const { value: lastName, bind: bindLastName, reset: resetLastName } = useInput('');
+    const { value: email, bind: bindEmail, reset: resetEmail } = useInput('');
+    const { value: slogan, bind: bindSlogan, reset: resetSlogan } = useInput('');
 
     const [validated, setValidated] = useState(false);
 
 
-    const handleSubmit = (evt) => {
-        evt.preventDefault();
-    
-        const form = evt.currentTarget;
-        if (form.checkValidity() === false) {
-    
-          evt.preventDefault();
-          evt.stopPropagation();
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-          alert('Submitting error, check the character number');
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+
+            event.stopPropagation();
+
+            alert('Submitting error, check the character number');
+            form.classList.add('was-validated')
 
         }
         else {
-        const res = fetch.post('slogan submitted',{
-        firstName, lastName, email, slogan
-        })
+
+            const data = { firstName, lastName, email, slogan };
+
+            fetch('https://reqbin.com/sample/post/json', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                })
+            resetLastName();
+            resetFirstName();
+            resetEmail();
+            resetSlogan();
+            form.classList.remove('was-validated')
+
+        }
+        setValidated(true);
+
     }
-
-    setValidated(true);
-
-}
     return (
-            <form className='form' noValidate onSubmit={handleSubmit()}>
-            <label>Enter First name here</label>
+        <form className='form' noValidate onSubmit={handleSubmit}>
+            <label for="firstName" className="form-label">First Name
+            </label>
             <input
-            name="firstName"
-
+                id="firstName"
+                className="form-control"
+                name="firstName"
+                required
+                type="text"
+                value={firstName}
+                {...bindFirstName}
             />
-            </form>
+
+            <label for="lastName" className="form-label">Last Name
+            </label>
+            <input
+                id="lastName"
+                className="form-control"
+                name="lastName"
+                required
+                type="text"
+                value={lastName}
+                {...bindLastName}
+            />
+
+            <label for="email" className="form-label">Email
+            </label>
+            <input
+                id="email"
+                className="form-control"
+                name="email"
+                required
+                type="text"
+                value={email}
+                {...bindEmail}
+            />
+
+            <label for="slogan" className="form-label">Your slogan:
+            </label>
+            <input
+            max-length="50"
+                id="slogan"
+                className="form-control"
+                name="slogan"
+                required
+                type="text"
+                value={slogan}
+                {...bindSlogan}
+            />
+            <input class="btn-success px-3 rounded mt-3" type="submit" value="Send"  {...handleSubmit} />
+        </form>
 
     );
 }

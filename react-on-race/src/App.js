@@ -5,6 +5,7 @@ import TopNav from './components/TopNav';
 import FootNav from './components/FootNav';
 import Map from './components/Map';
 import riders from './components/RiderList';
+// import formInputs from './components/formInput';
 import '../src/assets/scss/style.scss';
 import { BrowserRouter as Router, Routes, Route,  } from 'react-router-dom';
 import Picture from './components/Picture';
@@ -25,7 +26,7 @@ function App() {
           <Route path="/pictures" element={<Picture />} />
           <Route path="/map" element={<Map riders={riders} />} />
           <Route path="/riderList" element={<Table riders={riders} />} />
-          <Route path="/contestPage" element={<Contest/>} />
+          <Route path="/contestPage" element={<Contest />} />
 
       </Routes>
 

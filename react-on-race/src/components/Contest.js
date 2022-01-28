@@ -2,10 +2,9 @@ import React from 'react';
 import Slogan from './Slogan';
 import Forms from './Forms';
 
-
 function Contest() {
     return (
-        <div className='home'>
+        <div className='container-fluid'>
             <section className="form">
                 <Forms />
             </section>  

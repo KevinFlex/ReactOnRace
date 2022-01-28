@@ -5,7 +5,7 @@ function Table(props) {
 
 
     return (
-        <table className="table striped bordered hover">
+        <table className="table table-striped bordered hover">
             <thead>
                 <tr>
                     <th>#</th>
