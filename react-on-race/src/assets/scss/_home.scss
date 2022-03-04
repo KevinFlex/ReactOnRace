@@ -23,6 +23,11 @@
     right: 0;
     background-color: rgba(0,0,0,.6);
     -webkit-filter: blur(3px);
+}
 
-
+nav {
+    button {
+        span{margin-right: 1rem;
+        } 
+    }
 }

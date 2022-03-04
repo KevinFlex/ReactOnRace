@@ -3,11 +3,13 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import mapicon from '../assets/mapicon.jpg'
 import L from "leaflet";
+import riders from './RiderList';
 
 
 
 function LocationMarker(props) {
 
+  const src ="https://unpkg.com/leaftlet@1.7.1/dist/images/marker-icon.png"
 
   const placeholder = [ 40.00, -105.25 ]
 
@@ -28,8 +30,8 @@ function LocationMarker(props) {
       />
         {props.riders.map((rider, index) => {
         return (
-          <Marker key={index} position={rider.position} mapicon={mapicon}>
-            <Popup name={rider.lastName}></Popup>
+          <Marker key={index} position={rider.position} src= {src}>
+            <Popup>{rider.firstName} {rider.lastName}</Popup>
           </Marker>
         )
       })}
