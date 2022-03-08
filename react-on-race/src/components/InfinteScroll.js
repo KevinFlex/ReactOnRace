@@ -27,41 +27,26 @@ function InfiniteScroll() {
     );
 
     const fetchData = useCallback(async pageNumber => {
-        const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=154b30803a73ce5aaa4744bc121c10c1&tags=bikerace%2C+boulderbiketour&per_page=6&page=${pageNumber}&format=json&nojsoncallback=1`;
-        fetch(url)
+        const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=154b30803a73ce5aaa4744bc121c10c1&tags=bikerace%2C+boulderbiketour&per_page=40&page=${page}&format=json&nojsoncallback=1`;
+        setLoading(true);
 
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw response;
+        try {
+            const res = await fetch(url);
 
-            })
-
-            .then(data => {
-                let pictureGet = data.photos.photo.map((image, i) => {
-                    return 'https://live.staticflickr.com/' + image.server + '/' + image.id + '_' + image.secret + '_w.jpg';
-                    console.log(image);
-
-                })
-                console.log(JSON.stringify(data));
-
-                setData(pictureGet);
-            })
-            .catch((error) => {
-                console.error("Error fetching data: ", error);
-                setError(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
+            setLoading(false);
+            return await res.json();
+        } catch (e) {
+            setLoading(false);
+            return e;
+        }
     }, []);
 
     const handleInitial = useCallback(
-        async pageNumber => {
-            const newImages = await fetchData(pageNumber);
-            const { status, data } = newImages;
-            if (status === 200) setImages(images => [...images, ...data]);
+        async page => {
+            const newImages = await fetchData(page);
+            console.log(newImages);
+            const { photos } = newImages;
+            setImages(images => [...images, ...photos.photo]);
         },
         [fetchData]
     );
@@ -92,10 +77,10 @@ function InfiniteScroll() {
     return (
         <>
             {images && (
-                <ul className="imageGrid">
-                    {images.map((image, index) => (
-                        <li key={index} className="imageContainer">
-                            <img src={image} alt="incoming event" className="img-fluid shadow-4 mb-3 hover-shadow" />
+                <ul className="imageGrid row text-center picture">
+                    {images.map((item, index) => (
+                        <li key={index} className="hover-shadow shadow-4 mb-3 col-3 px-2">
+                            <img src={'https://live.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_w.jpg'} alt="incoming event" className="img-fluid w-100" />
                         </li>
                     ))}
                 </ul>
@@ -103,8 +88,8 @@ function InfiniteScroll() {
 
             {loading && <li>Loading ...</li>}
 
-            <div ref={setElement} className="buttonContainer">
-                <button className="buttonStyle">Load More</button>
+            <div ref={setElement} className="buttonContainer picture">
+                <button className="buttonStyle" hidden>Load More</button>
             </div>
         </>
     );

@@ -1,9 +1,7 @@
 .picture {
-    background-color: dimgray;
+    background-color: rgba(197, 195, 195, 0.37);
 
     img {
-        height: 65vh;
-        width: auto;
         object-fit: contain;
 
         &:hover { 
@@ -14,4 +12,8 @@
                 }
     }
 
+    ::marker {
+        display: none;
+        color: transparent;
+    }
 }
