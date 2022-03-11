@@ -3,6 +3,7 @@
 
     img {
         object-fit: contain;
+        max-height: 20rem;;
 
         &:hover { 
                   scale: 0.95;
@@ -15,5 +16,13 @@
     ::marker {
         display: none;
         color: transparent;
+    }
+}
+
+@media (max-width: 900px) {
+
+    ul {
+        padding-left : 1rem;
+        padding-right: 1rem;
     }
 }
