@@ -6,7 +6,7 @@ import logo from '../../src/assets/Images/logo.png';
 function TopNav() {
   return (
     <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
-      <div class="navbar-header container-fluid">
+      <div className="navbar-header container-fluid">
         <a className="navbar-brand" href="/"><img src="..\logo.png" width="90" height="40" /></a>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>

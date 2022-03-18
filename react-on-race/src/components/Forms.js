@@ -5,7 +5,7 @@ import { useState } from 'react'
 export default function Forms() {
     const { value: firstName, bind: bindFirstName, reset: resetFirstName } = useInput('');
     const { value: lastName, bind: bindLastName, reset: resetLastName } = useInput('');
-    const { value: email, bind: bindEmail, reset: resetEmail } = useInput('');
+    const { value: mail, bind: bindMail, reset: resetMail } = useInput('');
     const { value: slogan, bind: bindSlogan, reset: resetSlogan } = useInput('');
 
     const [validated, setValidated] = useState(false);
@@ -25,9 +25,9 @@ export default function Forms() {
         }
         else {
 
-            const data = { firstName, lastName, email, slogan };
+            const data = { firstName, lastName, mail, slogan };
 
-            fetch('https://reqbin.com/sample/post/json', {
+            fetch('http://localhost:3000/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -40,7 +40,7 @@ export default function Forms() {
                 })
             resetLastName();
             resetFirstName();
-            resetEmail();
+            resetMail();
             resetSlogan();
             form.classList.remove('was-validated')
 
@@ -74,22 +74,22 @@ export default function Forms() {
                 {...bindLastName}
             />
 
-            <label for="email" className="form-label">Email
+            <label for="mail" className="form-label">Email
             </label>
             <input
-                id="email"
+                id="mail"
                 className="form-control"
-                name="email"
+                name="mail"
                 required
                 type="text"
-                value={email}
-                {...bindEmail}
+                value={mail}
+                {...bindMail}
             />
 
             <label for="slogan" className="form-label">Your slogan:
             </label>
             <input
-            max-length="50"
+                max-length="50"
                 id="slogan"
                 className="form-control"
                 name="slogan"
@@ -98,7 +98,7 @@ export default function Forms() {
                 value={slogan}
                 {...bindSlogan}
             />
-            <input class="btn-success px-3 rounded mt-3" type="submit" value="Send"  {...handleSubmit} />
+            <input className="btn-success px-3 rounded mt-3" type="submit" value="Send"  {...handleSubmit} />
         </form>
 
     );
