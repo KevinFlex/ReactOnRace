@@ -77,7 +77,7 @@ function InfiniteScroll() {
     return (
         <>
             {images && (
-                <ul className="imageGrid row text-center picture">
+                <ul className="imageGrid row text-center picture mx-0">
                     {images.map((item, index) => (
                         <li key={index} className="hover-shadow shadow-4 mb-3 col-12 col-md-3 px-2">
                             <img src={'https://live.staticflickr.com/' + item.server + '/' + item.id + '_' + item.secret + '_w.jpg'} alt="incoming event" className="img-fluid w-100" />
