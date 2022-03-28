@@ -8,7 +8,7 @@ function TopNav() {
     <nav className="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
       <div className="navbar-header container-fluid">
         <a className="navbar-brand" href="/"><img src="..\logo.png" width="90" height="40" /></a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span className="navbar-toggler-icon"></span>
         </button>
       </div>

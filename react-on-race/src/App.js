@@ -12,6 +12,8 @@ import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import InfiniteScroll from './components/InfinteScroll'
 import Table from './components/Table';
 import Contest from './components/Contest';
+import 'bootstrap/dist/js/bootstrap.bundle'
+
 
 
 function App() {

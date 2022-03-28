@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
-import L from "leaflet";
 
 
 
@@ -10,20 +8,7 @@ function LocationMarker() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  const src = "https://unpkg.com/leaftlet@1.7.1/dist/images/marker-icon.png"
-
   const placeholder = [40.00, -105.25]
-
-  const mapicon = new L.Icon({
-    iconUrl: mapicon,
-    iconRetinaUrl: mapicon,
-    iconSize: [60, 55],
-    shadowSize: [50, 64],
-    iconAnchor: [22, 94],
-    shadowAnchor: [4, 62],
-    popupAnchor: [-3, -76],
-  })
 
 
   useEffect(() => {
@@ -61,7 +46,7 @@ function LocationMarker() {
         />
         {data.map((racer, index) => {
           return (
-            <Marker key={index} position={[racer.lat, racer.lng]} src={src}>
+            <Marker key={index} position={[racer.lat, racer.lng]}>
               <Popup>{racer.firstName} {racer.lastName}</Popup>
             </Marker>
           )
