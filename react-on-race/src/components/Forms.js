@@ -50,11 +50,11 @@ export default function Forms() {
     }
     return (
         <form className='form' noValidate onSubmit={handleSubmit}>
-            <label for="firstName" className="form-label">First Name
+            <label htmlFor='firstName' className="form-label mt-5">First Name
             </label>
             <input
                 id="firstName"
-                className="form-control"
+                className="form-control mb-5"
                 name="firstName"
                 required
                 type="text"
@@ -62,11 +62,11 @@ export default function Forms() {
                 {...bindFirstName}
             />
 
-            <label for="lastName" className="form-label">Last Name
+            <label htmlFor="lastName" className="form-label">Last Name
             </label>
             <input
                 id="lastName"
-                className="form-control"
+                className="form-control mb-5"
                 name="lastName"
                 required
                 type="text"
@@ -74,11 +74,11 @@ export default function Forms() {
                 {...bindLastName}
             />
 
-            <label for="mail" className="form-label">Email
+            <label htmlFor="mail" className="form-label">Email
             </label>
             <input
                 id="mail"
-                className="form-control"
+                className="form-control mb-5"
                 name="mail"
                 required
                 type="text"
@@ -86,19 +86,19 @@ export default function Forms() {
                 {...bindMail}
             />
 
-            <label for="slogan" className="form-label">Your slogan:
+            <label htmlFor="slogan" className="form-label">Your slogan:
             </label>
             <input
                 max-length="50"
                 id="slogan"
-                className="form-control"
+                className="form-control slogan__height mb-5"
                 name="slogan"
                 required
                 type="text"
                 value={slogan}
                 {...bindSlogan}
             />
-            <input className="btn-success px-3 rounded mt-3" type="submit" value="Send"  {...handleSubmit} />
+            <input className="btn-success mb-5 px-3 rounded mt-3" type="submit" value="Send"  {...handleSubmit} />
         </form>
 
     );
