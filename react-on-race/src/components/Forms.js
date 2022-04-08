@@ -19,7 +19,7 @@ export default function Forms() {
 
             event.stopPropagation();
 
-            alert('Submitting error, check the character number');
+            alert('Submitting error, all inputs required');
             form.classList.add('was-validated')
 
         }
@@ -34,7 +34,14 @@ export default function Forms() {
                 },
                 body: JSON.stringify(data)
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (response.status >= 400) {
+                        alert("Your slogan character number must be less than 50")
+                    }
+                    else {
+                        response.json()
+                    }
+                })
                 .then(data => {
                     console.log(data);
                 })
