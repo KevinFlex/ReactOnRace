@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 function FootNav() {
     return (
         <nav className="d-none d-sm-inline-block navbar navbar-dark bg-dark sticky-bottom px-5 m-auto container-fluid">
-            <div className='d-flex container-fluid'>
+            <div className='d-flex container'>
                 <ul className="navbar-nav">
 
                     <li className="nav-item">
@@ -28,7 +28,7 @@ function FootNav() {
                 </ul>
                 <img src='..\logo.png'></img>
             </div>
-            <div className='d-flex justify-content-end text-light'>
+            <div className='text-center text-light'>
                 <i className='fa fa-cycle'>Copyright ReactRace2022©
                 </i>
             </div>

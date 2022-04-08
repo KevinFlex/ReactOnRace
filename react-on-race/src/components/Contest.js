@@ -4,13 +4,13 @@ import Forms from './Forms';
 
 function Contest() {
     return (
-        <div className='container-fluid'>
+        <div className='container'>
             <section className="form">
                 <Forms />
-            </section>  
+            </section>
             <section className='solgan'>
                 <Slogan />
-            </section>      
+            </section>
         </div>
     );
 }

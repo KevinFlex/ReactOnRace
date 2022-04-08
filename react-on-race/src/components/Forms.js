@@ -39,6 +39,7 @@ export default function Forms() {
                         alert("Your slogan character number must be less than 50")
                     }
                     else {
+                        alert("Your slogan has been submitted !")
                         response.json()
                     }
                 })
@@ -96,7 +97,7 @@ export default function Forms() {
             <label htmlFor="slogan" className="form-label">Your slogan:
             </label>
             <input
-                max-length="50"
+                maxLength="50"
                 id="slogan"
                 className="form-control slogan__height mb-5"
                 name="slogan"
