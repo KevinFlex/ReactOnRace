@@ -3,14 +3,15 @@
 
     img {
         object-fit: contain;
-        max-height: 20rem;;
+        max-height: 20rem;
+        ;
 
-        &:hover { 
-                  scale: 0.95;
-                  transition-duration: 0.5s;
-                  transition-property: all;
-                  filter: grayscale(60%);
-                }
+        &:hover {
+            scale: 0.95;
+            transition-duration: 0.5s;
+            transition-property: all;
+            filter: grayscale(80%);
+        }
     }
 
     ::marker {
@@ -22,7 +23,7 @@
 @media (max-width: 900px) {
 
     ul {
-        padding-left : 1rem;
+        padding-left: 1rem;
         padding-right: 1rem;
     }
 }
